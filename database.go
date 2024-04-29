@@ -1,7 +1,7 @@
 package jamdb
 
 type Database struct {
-	tables map[string]Table
+	Tables map[string]Table
 }
 
 type Table struct {
@@ -18,13 +18,13 @@ type Column struct {
 
 func NewDatabase() *Database {
 	return &Database{
-		tables: make(map[string]Table),
+		Tables: make(map[string]Table),
 	}
 }
 
 func (db *Database) CreateTable(name string, columns []Column) *Table {
 	table := NewTable(name, columns)
-	db.tables[table.Name] = table
+	db.Tables[table.Name] = table
 	return &table
 }
 
